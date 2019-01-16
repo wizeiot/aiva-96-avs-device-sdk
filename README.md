@@ -35,7 +35,7 @@ Hardware setup
 - Power on your DragonBoard 410c with 96Boards compliant power supply
 - To make sure the microphone and speakers are connected successfully, go to Application Menu -> Sound & Video -> PulseAudio Volume Control and check the input and output device, set as "WizeIoT AiVA-96 DevKit (UAC1.0) Analog Stereo". 
 
-    ![AiVA-96 and DB410c](https://github.com/daehahn/aiva-96-alexa-avs-sample/wiki/assets/aiva_db410c.jpg)
+    ![AiVA-96 and DB410c](https://github.com/wizeiot/aiva-96-alexa-avs-sample/wiki/assets/aiva_db410c.jpg)
 
 AVS SDK installation and Dragon Board 410c audio setup
 ---
