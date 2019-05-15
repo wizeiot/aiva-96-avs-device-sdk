@@ -6,13 +6,13 @@
 create_swapfile()
 {
   SWAPSIZE=`free | awk '/Swap/ { printf "%d", $2/1024 }'`
-  while [[ "$SWAPSIZE" -lt "384" ]]; do
+  while [[ "$SWAPSIZE" -lt "511" ]]; do
     echo "=============================================================="
     echo "Create a temporary SWAP file. It will disappear when reboot."
-    echo "** Please consier to add a performanant SWAP file/parition. **"
+    echo "** Please consier to add a permanent SWAP file/parition.    **"
     echo "=============================================================="
     sudo modprobe zram num_devices=1
-    sudo -i bash -c '$(echo $((393224 * 1024)) > /sys/block/zram0/disksize)'
+    sudo -i bash -c '$(echo $((512 * 1024 * 1024)) > /sys/block/zram0/disksize)'
     sudo mkswap /dev/zram0
     sudo swapon -p 5 /dev/zram0
     SWAPSIZE=`free | awk '/Swap/ { printf "%d", $2/1024}'`
@@ -20,7 +20,7 @@ create_swapfile()
   free
 }
 
-# Create temporary swpafile (384 MiB) 
+# Create temporary swpafile (512 MiB) 
 create_swapfile
 
 # Download necessary files prefetch from avs-device-sdk
